@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('activeMainLink')){
+if (! function_exists('activeMainLink')) {
     function activeMainLink() {
         if(request()->is('/')) {
             return 'menu-link__active';
@@ -10,7 +10,7 @@ if (! function_exists('activeMainLink')){
 }
 
 if (! function_exists('activeArticleLink')) {
-    function activeArticleLink() {
+    function activeArticleLink (){
         if((request()->is('articles') or request()->is('articles/*'))) {
             return 'menu-link__active';
         }

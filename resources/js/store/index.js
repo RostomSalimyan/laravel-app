@@ -1,33 +1,29 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import * as article from './modules/article.js'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+    modules: {
+        article
+    },
     state: {
-        firstname: 'Jon',
-        lastname: 'Jayson'
+        slug: '',
     },
-
     actions: {
-        testAction(context, payload) {
-            context.commit('SET_FIRSTNAME', response.data.name)
-            context.commit('SET_ LASTNAME', response.data.lastname)
-        }
-    },
 
+    },
     getters: {
-        getFullname(state) {
-            return state.firstname + ' ' + state.lastname;
-        }
+        articleSlugRevers(state) {
+            return state.slug.split('').reverse().join('');
+        },
     },
-
     mutations: {
-        SET_FIRSTNAME(state, payload) {
-            state.firstname = payload;
-        },
-        SET_LASTNAME(state, payload) {
-            state.lastname = payload;
-        },
+        SET_SLUG(state, payload) {
+            state.slug = payload;
+        }
     }
 })
+
